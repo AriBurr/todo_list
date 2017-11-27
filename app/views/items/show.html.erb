@@ -1,0 +1,10 @@
+<div class="container">
+
+  <h1><%= @item.title %></h1>
+  <p><%= @item.body %></p>
+
+  <%= link_to "All Todos", items_path, class: 'btn btn-primary' %>
+  <%= link_to "Edit", edit_item_path, class: 'btn btn-info' %>
+  <%= link_to 'Delete', item_path(@item), method: :delete, data:{ confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+
+</div>
