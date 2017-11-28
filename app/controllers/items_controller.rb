@@ -1,14 +1,14 @@
 class ItemsController < ApplicationController
+  before_action :find_item, only: [:show, :edit, :update, :destroy]
+
   def index
     @items = Item.all
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def new
@@ -25,7 +25,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(items_params)
       redirect_to items_path(@item)
     else
@@ -34,14 +33,28 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    Item.find(params[:id]).destroy
+    @item.destroy
     redirect_to items_path
   end
 
-end
+  def complete
+    @items = Item.where("complete = 'true'")
+    render 'index'
+  end
+
+  def incomplete
+    @items = Item.where("complete = 'false'")
+    render 'index'
+  end
 
 private
 
   def items_params
-    params.require(:item).permit(:title, :body)
+    params.require(:item).permit(:title, :body, :complete, :priority)
   end
+
+  def find_item
+    @item = Item.find(params[:id])
+  end
+
+end

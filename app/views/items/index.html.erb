@@ -1,11 +1,20 @@
-<div class="container">
-  <h1>Items</h1>
-  <hr>
-  <% if @items.any? %>
-    <% @items.each do |item| %>
-      <h2>* <%= link_to item.title, item_path(item.id) %></h2><br>
+<% if @items.any? %>
+  <%= render 'search_buttons' %>
+  <% @items.each do |item| %>
+
+    <h3><%= link_to item.title, item_path(item.id) %></h3><br>
+    <p>Description: <%= truncate(item.body, length: 50) %><p>
+    <p>Priority: <%= item.priority %></p>
+
+    <% if item.complete%>
+      <p id="complete"><em>Complete!</em></p>
+    <% else %>
+      <p id="incomplete"><em>Not Complete!</em></p>
     <% end %>
+
+    <hr>
+
   <% end %>
-  <%= link_to 'Add a Todo', new_item_path, class: "btn btn-primary" %>
-  <%= link_to 'Back to Home', root_path, class: "btn btn-info" %>
-</div>
+<% else %>
+  <h2>Nothing to see here!</h2>
+<% end %>

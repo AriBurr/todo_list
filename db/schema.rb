@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20171127215146) do
   create_table "items", force: :cascade do |t|
     t.string "title", null: false
     t.text "body", null: false
+    t.string "priority", null: false
     t.boolean "complete", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

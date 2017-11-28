@@ -1,2 +1,47 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  background: #F0F3BD;
+  color: #646165;
+}
+
+img {
+  border: 3px solid #F6F0ED;
+  max-width: 100%;
+}
+
+#sidebar {
+background: #7EBDC3;
+height: 100%;
+position: fixed;
+width: 200px;
+  h1 {
+  color: #F6F0ED;
+  margin: 20%;
+}
+  li {
+    list-style: none;
+    padding: 5%;
+  }
+}
+
+.main-content {
+  background: #C6DEA6;
+  border: 5px solid #F6F0ED;
+  margin-top: 5%;
+  max-width: 100%;
+  padding: 5%;
+}
+
+.search_buttons {
+  margin-bottom: 10%;
+}
+
+#complete {
+  color: #FBB13C;
+}
+
+#incomplete {
+  color: #DE6E4B;
+}

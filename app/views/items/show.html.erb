@@ -1,10 +1,17 @@
-<div class="container">
+<h1><%= @item.title %></h1>
+<em><%= @item.body %></em>
+<p>Priority: <%= @item.priority %></p>
 
-  <h1><%= @item.title %></h1>
-  <p><%= @item.body %></p>
+<% if @item.complete%>
+  <p id="complete"><em>Complete!</em></p>
+<% else %>
+  <p id="incomplete"><em>Not Complete!</em></p>
+<% end %>
 
+<hr>
+
+<div class="action-buttons">
   <%= link_to "All Todos", items_path, class: 'btn btn-primary' %>
   <%= link_to "Edit", edit_item_path, class: 'btn btn-info' %>
   <%= link_to 'Delete', item_path(@item), method: :delete, data:{ confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-
 </div>

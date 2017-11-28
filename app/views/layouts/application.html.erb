@@ -3,12 +3,24 @@
   <head>
     <title>TodoList</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <div class="row">
+      <div class="col-md-4">
+        <aside id="sidebar">
+          <h1>toDo.</h1>
+          <ul>
+            <li><%= link_to 'Home', root_path, class: "btn btn-info" %></li>
+            <li><%= link_to "All toDos", items_path, class: 'btn btn-primary' %></li>
+            <li><%= link_to 'Create toDo', new_item_path, class: "btn btn-primary" %></li>
+          </ul>
+        </aside>
+      </div>
+      <div class="col-md-6 main-content">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
