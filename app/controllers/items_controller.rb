@@ -38,12 +38,12 @@ class ItemsController < ApplicationController
   end
 
   def complete
-    @items = Item.where("complete = 'true'")
+    @items = Item.check_complete
     render 'index'
   end
 
   def incomplete
-    @items = Item.where("complete = 'false'")
+    @items = Item.check_incomplete
     render 'index'
   end
 

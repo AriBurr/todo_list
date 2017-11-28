@@ -1,1 +1,5 @@
-  <%= image_tag "welcome.png"%>
+<%= image_tag "welcome.png"%>
+<h1>This is your progress.</h1>
+<div class="progress">
+  <div class="progress-bar progress-bar-info" style="width:<%= @progress %>%"><%= @progress %></div>
+</div>
